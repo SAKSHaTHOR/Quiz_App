@@ -53,7 +53,9 @@ class QuizApp extends StatelessWidget {
                   border: Border.all(color: lightgrey, width: 2),
                 ),
                 child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _showExitConfirmation(context);
+                    },
                     icon: Icon(
                       CupertinoIcons.xmark,
                       color: Colors.white,
@@ -71,7 +73,7 @@ class QuizApp extends StatelessWidget {
                   color: lightgrey,
                   size: 16,
                   text:
-                      "Do you feel confident? Here you'll face our most annoying questions!"),
+                      "Do you feel confident? Here you'll face our most enthusiastic questions!"),
               const Spacer(),
               Align(
                 alignment: Alignment.center,
@@ -100,6 +102,34 @@ class QuizApp extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  // function  to show a confirmation dialog when trying to exit
+  void _showExitConfirmation(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          
+          title: const Text('Exit'),
+          content: const Text('Are you sure you want to exit the app?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('No'),
+            ),
+            TextButton(
+              onPressed: () {
+                SystemNavigator.pop(); 
+              },
+              child: const Text('Yes'),
+            ),
+          ],
+        );
+      },
     );
   }
 }
