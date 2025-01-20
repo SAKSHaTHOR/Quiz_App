@@ -6,6 +6,10 @@
 2.quizz
 3.summary/score screen
 
+### App action
+https://github.com/user-attachments/assets/5e72e638-2f3a-4741-924b-8a0cafb47407
+
+
 ### Screenshots
 ![](https://github.com/user-attachments/assets/f50d58d9-985e-4994-b765-1333312299bd)
 ![](https://github.com/user-attachments/assets/c58ac280-fa55-496f-bbb5-2d972762e158)
