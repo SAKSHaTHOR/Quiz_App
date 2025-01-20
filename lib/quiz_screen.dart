@@ -5,6 +5,7 @@ import 'package:quiz_app/api_services.dart';
 import 'package:quiz_app/const/colors.dart';
 import 'package:quiz_app/const/images.dart';
 import 'package:quiz_app/const/text_style.dart';
+import 'package:quiz_app/summary_screen.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
@@ -60,8 +61,13 @@ class _QuizScreenState extends State<QuizScreen> {
             seconds = 60; // Reset timer
             startTimer(); // Start timer again for the new question
           } else {
-            // End of quiz logic (optional)
-            //showQuizCompletionDialog();
+            // Navigate to the Summary Screen
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SummaryScreen(points: points),
+              ),
+            );
           }
         }
       });
@@ -105,10 +111,6 @@ class _QuizScreenState extends State<QuizScreen> {
                 );
               } else if (snapshot.hasData) {
                 var data = snapshot.data["questions"];
-
-                //if (isLoaded == false) {
-                //optionsList = data[currentQuestionIndex];
-                //}
 
                 return SingleChildScrollView(
                   child: Column(
@@ -157,7 +159,7 @@ class _QuizScreenState extends State<QuizScreen> {
                               border: Border.all(color: lightgrey, width: 2),
                             ),
                             child: TextButton.icon(
-                              onPressed: null,
+                              onPressed: () {},
                               icon: const Icon(
                                 CupertinoIcons.heart_fill,
                                 color: Colors.white,
@@ -223,7 +225,7 @@ class _QuizScreenState extends State<QuizScreen> {
                               });
 
                               if (currentQuestionIndex < data.length - 1) {
-                                Future.delayed(Duration(seconds: 1), () {
+                                Future.delayed(Duration(milliseconds: 20), () {
                                   isLoaded = false;
                                   currentQuestionIndex++;
                                   resetColors();
@@ -233,6 +235,13 @@ class _QuizScreenState extends State<QuizScreen> {
                                 });
                               } else {
                                 timer!.cancel();
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        SummaryScreen(points: points),
+                                  ),
+                                );
                               }
                             },
                             child: Container(
