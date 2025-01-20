@@ -1,16 +1,10 @@
-# quiz_app
-
-A new Flutter project.
+# quiz_app.
+ a quiz app with gemification features and API 
 
 ## Getting Started
+1.start screen
+2.quizz
+3.summary/score screen
 
-This project is a starting point for a Flutter application.
+### Screenshots
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
